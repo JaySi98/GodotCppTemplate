@@ -1,0 +1,9 @@
+[configuration]
+
+entry_symbol = "example_library_init"
+
+[libraries]
+
+linux.64="libGodotExtension.so"
+windows.x86_64="res://demo/bin/libgdexample.windows.x86_64.dll"
+macos="res://demo/bin/libgdexample.macos.framework"
