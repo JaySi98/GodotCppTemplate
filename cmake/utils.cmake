@@ -6,25 +6,11 @@ function(add_clang_format_target)
     endif()
 
     if(CLANG_FORMAT)
-        if(BUILD_EXECUTABLE)
-            add_custom_target(clang-format
-                COMMAND ${CLANG_FORMAT}
-                -i ${EXE_SOURCES} ${HEADERS}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-            )
-        elseif(BUILD_HEADERS_ONLY)
-            add_custom_target(clang-format
-                COMMAND ${CLANG_FORMAT}
-                -i ${HEADERS}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-            )
-        else()
-            add_custom_target(clang-format
-                COMMAND ${CLANG_FORMAT}
-                -i ${SOURCES} ${HEADERS}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-            )
-        endif()
+        add_custom_target(clang-format
+            COMMAND ${CLANG_FORMAT}
+            -i ${SOURCES} ${HEADERS}
+            WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+        )
     endif()
 endfunction()
 

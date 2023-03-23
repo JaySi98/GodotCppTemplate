@@ -90,11 +90,7 @@ function(set_project_warnings project_name)
         add_compile_options("$<$<CONFIG:DEBUG>:-D_DEBUG>")    
     endif (UNIX)
 
-    if(BUILD_HEADERS_ONLY)
-        target_compile_options(${PROJECT_NAME} INTERFACE ${PROJECT_WARNINGS})
-    else()
-        target_compile_options(${PROJECT_NAME} PUBLIC ${PROJECT_WARNINGS})
-    endif()
+    target_compile_options(${PROJECT_NAME} PUBLIC ${PROJECT_WARNINGS})
 
     if(NOT TARGET ${PROJECT_NAME})
         message(AUTHOR_WARNING "${PROJECT_NAME} is not a target, thus no compiler warning were added\n.")
